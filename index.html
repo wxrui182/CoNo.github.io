@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CoNo: Consistency Noise Injection for Tuning-free Long Video Diffusion</title>
+
+  <script type="module"
+          src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="./static/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="./static/slick/slick-theme.css"/>
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="container has-text-centered">
+          <h1 class="title is-1 publication-title">
+            CoNo: 
+          </h1>
+          <h3 class="title is-3 publication-title">
+            Consistency Noise Injection for Tuning-free Long Video Diffusion
+          </h3>
+          <!-- 作者、机构和共同一标识 -->
+          <div class="is-size-5 publication-authors">
+            <p>
+              <div style="text-align: center; font-weight: bold; font-size: 24px;">
+                arXiv
+              </div>              
+              <br>
+              <span class="author">Xingrui Wang</sup></span>, 
+              <span class="author">Xin Li</sup></span>, 
+              <span class="author">Zhibo Chen</sup></span>, 
+            </p>
+          </div>          
+          <div class="is-size-5 publication-authors">
+            <p></sup>University of Science and Technology of China</p>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Github Link. -->
+              <span class="link-block">
+                <a href="https://github.com/wxrui182/CoNo"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (coming soon!)</span>
+                  </a>
+              </span>
+              <!-- Arxiv Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-one-quarter video-container">
+          <video muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1LongVideo/1.mp4"></video>
+          <p>Campfire at night in a snowy forest with starry sky in the background.</p>
+        </div>
+        <div class="column is-one-quarter video-container">
+          <video muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1LongVideo/2.mp4"></video>
+          <p>Slow motion steam rises from a hot cup of coffee.</p>
+        </div>
+        <div class="column is-one-quarter video-container">
+          <video muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1LongVideo/3.mp4"></video>
+          <p>Slow motion sparks fly from a grinding wheel, creating a shower of light.</p>
+        </div>
+        <div class="column is-one-quarter video-container">
+          <video muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1LongVideo/4.mp4"></video>
+          <p>Bruce Lee shout like a lion ,wild fighter.</p>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-one-quarter video-container">
+          <video muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1LongVideo/7.mp4"></video>
+          <p>An elderly lady with a warm smile, white hair, and deep wrinkles. with the style of Salvador Dali</p>
+        </div>
+        <div class="column is-one-quarter video-container">
+          <video muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1LongVideo/11.mp4"></video>
+          <p>Slow motion lightning illuminates the dark sky, followed by the rumble of thunder.</p>
+        </div>
+        <div class="column is-one-quarter video-container">
+          <video muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1LongVideo/5-2.mp4"></video>
+          <p>Two white swans gracefully swam in the serene lake.</p>
+        </div>
+        <div class="column is-one-quarter video-container">
+          <video muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1LongVideo/13.mp4"></video>
+          <p>A corgi is swimming quickly.</p>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <h2 class="subtitle has-text-justified">
+          <b>We propose a brand-new tuning-free long video diffusion with our proposed consistency noise injection, intending to enhance the fine-grained long-term consistency of generated long videos.</b>
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2, columns is-centered">Video</h2>
+      <div class="publication-video">
+          <iframe width="320" height="256" src="https://www.youtube.com/embed/UQw4jq-igN4?si=00dYistYJZUWLRUs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+  </div>
+</section>
+-->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2 columns is-centered">Abstract</h2>
+    <div class="columns is-centered">
+      <div class="column">
+        <p class="large-text">
+          Tuning-free long video diffusion has been proposed to generate extended-duration videos with enriched content by reusing the knowledge from pre-trained short video diffusion model without retraining. However, most works overlook the fine-grained long-term video consistency modeling, resulting in limited scene consistency (<i>i.e.</i>, unreasonable object or background transitions), especially with multiple text inputs. To mitigate this, we propose the <b>Co</b>nsistency <b>No</b>ise Injection, dubbed <b>CoNo</b>, which introduces <span class="highlight">the &ldquo;look-back&rdquo; mechanism</span> to enhance the fine-grained scene transition between different video clips, and designs <span class="highlight">the long-term consistency regularization</span> to eliminate the content shifts when extending video contents through noise prediction. In particular, the &ldquo;look-back&rdquo; mechanism breaks the noise scheduling process into three essential parts, where one internal noise prediction part is injected into two video-extending parts, intending to achieve a fine-grained transition between two video clips. The long-term consistency regularization focuses on explicitly minimizing the pixel-wise distance between the predicted noises of the extended video clip and the original one, thereby preventing abrupt scene transitions. Extensive experiments have shown the effectiveness of the above strategies by performing long-video generation under both single- and multi-text prompt conditions.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .large-text {
+    font-size: 1.25em; /* 调整这个值来改变字体大小 */
+  }
+  .highlight {
+    color: #008AD7; /* 设置你需要的颜色 */
+    font-weight: bold;
+  }
+</style>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2 columns is-centered">Approach</h2>
+    <!-- Insert Image Here -->
+    <div class="columns is-centered">
+      <div class="column">
+        <figure class="image">
+          <img src="assets/Approach/framework.png" alt="Approach">
+        </figure>
+      
+      <!-- <br> -->
+
+      <p>
+        <br>
+        <b>Illustration of the CoNo framework.</b> 
+        We propose a “look-back” mechanism that inserts an internal noise prediction stage between two video extending stages to enhance scene consistency. To achieve this, we design the extending and internal initial noise shuffles and constrain the denoising
+        trajectory using selected predicted noise (denoted as [s] in the figure). Additionally, we apply long-term consistency regularization between adjacent video clips to avoid abrupt content shifts. We obtain
+        the final video by concatenating the frames marked with yellow boxes from different stages.
+      </p>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2 columns is-centered">The ''Look-Back'' Mechanism</h2>
+    <!-- Insert Image Here -->
+    <div class="columns is-centered">
+      <div class="column">
+        <figure class="image">
+          <img src="assets/Approach/ExtraAndInter.png" alt="The ``Look-Back'' Mechanism">
+        </figure>
+      
+      <!-- <br> -->
+
+      <p>
+        <br> 
+        The ''look-back'' mechanism divides the video extension process into three crucial stages, where one internal noise prediction stage is inserted into two video extending stages, intending to ensure stable content transition through the inherent constrain of two-side contents at each reverse process (<i>i.e.</i>, the predicted noises from left existing predicted frames and right extending frames). Notably maintaining the overall initial noise group of different video clips is crucial to guarantee the same contents/scenes, we also propose customized noise shuffle strategies for the above three stages, respectively. Concretely, we design the revised extending noise shuffle for the video extending stage, which recovers the noise order for guided frames after reversing the whole initial noises, thereby obviating the reverse-order repetitive content generation. For internal noise prediction, we directly inserted the initial noises at the end of the sequence into the middle position, resulting in an internal noise shuffle to ensure the same initial noise group.
+      </p>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2 columns is-centered">The Long-term Consistency Regularization</h2>
+    <!-- Insert Image Here -->
+    <div class="columns is-centered">
+      <div class="column">
+        <figure class="image">
+          <img src="assets/Approach/with_grad.png" alt="The Long-term Consistency Regularization">
+        </figure>
+      
+      <!-- <br> -->
+
+      <p>
+        <br> 
+        We propose an explicit long-term consistency regularization, which minimizes the pixel-wise distance between predicted noises of the extended video clip and the original generated video clip.
+      </p>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2 columns is-centered">Results: Comparison with Other Models</h2>
+
+    <hr>
+    <center>
+      <h2 class="title is-5"><b style="color:#008AD7; font-weight:normal"> </b> 🌟 Single-prompt Longer Video Generation 🌟 </h2>
+    </center>
+    <br>
+    <p>
+      The qualitative comparisons given <b>a single text prompt</b>.
+    </p>
+    <br>
+    <p style="text-align:center;"><b>A happy pig rolling in the mud on a sunny day.</b></p>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-one-third">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/SingleCompare/4-3.mp4"></video>
+          <p style="text-align:center;">GenL</p>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/SingleCompare/4-1.mp4"></video>
+          <p style="text-align:center;">FreeNoise</p>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/SingleCompare/4-2.mp4"></video>
+          <p style="text-align:center;">CoNo</p>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:center;"><b>Slow motion steam rises from a hot cup of coffee.</b></p>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-one-third">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/SingleCompare/54-3.mp4"></video>
+          <p style="text-align:center;">GenL</p>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/SingleCompare/0601.mp4"></video>
+          <p style="text-align:center;">FreeNoise</p>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/SingleCompare/54-2.mp4"></video>
+          <p style="text-align:center;">CoNo</p>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <center>
+      <h2 class="title is-5"><b style="color:#008AD7; font-weight:normal"> </b> 🌟 Multi-prompt Longer Video Generation 🌟 </h2>
+    </center>
+    <br>
+    <p>
+      The qualitative comparisons given <b>multiple text prompts</b>.
+    </p>
+    <br>
+    <p style="text-align:center;"><b>1. A man runs on a beautiful tropical beach at sunset of 4k high resolution.</b></p>
+    <p style="text-align:center;"><b>2. A man rides a bicycle on a beautiful tropical beach at sunset of 4k high resolution.</b></p>
+    <p style="text-align:center;"><b>3. A man walks on a beautiful tropical beach at sunset of 4k high resolution.</b></p>
+    <p style="text-align:center;"><b>4. A man reads a book on a beautiful tropical beach at sunset of 4k high resolution.</b></p>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-one-fifth">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/MultiCompare/17-4-3.mp4"></video>
+          <p style="text-align:center;">VidRD</p>
+        </div>
+      </div>
+      <div class="column is-one-fifth">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/MultiCompare/17-1.mp4"></video>
+          <p style="text-align:center;">GenL</p>
+        </div>
+      </div>
+      <div class="column is-one-fifth">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/MultiCompare/17-2.mp4"></video>
+          <p style="text-align:center;">FreeNoise</p>
+        </div>
+      </div>
+      <div class="column is-one-fifth">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/MultiCompare/17-5.mp4"></video>
+          <p style="text-align:center;">MTVG</p>
+        </div>
+      </div>
+      <div class="column is-one-fifth">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/MultiCompare/17-3.mp4"></video>
+          <p style="text-align:center;">CoNo</p>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2 columns is-centered">Quantitative Results</h2>
+    
+    <!-- First Image -->
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <figure class="image">
+          <img src="assets/Quantitative/1.png" alt="Approach">
+        </figure>
+      </div>
+    </div>
+    
+    <!-- Second Image -->
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <figure class="image">
+          <img src="assets/Quantitative/2.png" alt="Another Approach">
+        </figure>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2 columns is-centered">Ablation Study</h2>
+    
+    <!-- First Image and Text -->
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <figure class="image">
+          <img src="assets/AblationStudy/AblationForRegu.png" alt="Ablation Study for Long-term Consistency Regularization">
+        </figure>
+        <p>
+          <br>
+          <b>Ablation for Long-term Consistency Regularization.</b> 
+          ``w/o'' indicates without the regularization in the CoNo pipeline.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Second Image and Text -->
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <figure class="image">
+          <img src="assets/AblationStudy/AblationForInter.png" alt="Ablation Study for Internal Noise Prediction">
+        </figure>
+        <p>
+          <br>
+          <b>Ablation for Internal Noise Prediction.</b> 
+          Transition frames are marked with red boxes and the details of transitions are highlighted with yellow boxes.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2 columns is-centered">More Qualitative Results of CoNo</h2>
+
+    <hr>
+    <center>
+      <h2 class="title is-5"><b style="color:#008AD7; font-weight:normal"> </b> 🌟 VideoCrafter1 🌟 </h2>
+    </center>
+    <br>
+    <p>
+      The base model is <b>VideoCrafter1</b>.
+    </p>
+    <br>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1LongVideo/16-2.mp4"></video>
+          <p style="text-align:center;">Boats on the calm, blue ocean.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1LongVideo/15-2.mp4"></video>
+          <p style="text-align:center;">Mickey Mouse is dancing on white background.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1LongVideo/23-2.mp4"></video>
+          <p style="text-align:center;">A cat watching the starry night by Vincent Van Gogh, Highly Detailed, 2K with the style of emoji.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1LongVideo/57-2.mp4"></video>
+          <p style="text-align:center;">Angelina Jolie's piercing gaze conveys power, her lips set in a determined line.</p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1LongVideo/3-2.mp4"></video>
+          <p style="text-align:center;">A cute and chubby giant panda is enjoying a bamboo meal in a lush forest. The panda is relaxed and content as it eats, and occasionally stops to scratch its ear with its paw.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1LongVideo/58-2.mp4"></video>
+          <p style="text-align:center;">Oprah Winfrey's warm smile, her eyes full of empathy and understanding.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1LongVideo/12.mp4"></video>
+          <p style="text-align:center;">A squirrel.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1LongVideo/47-2.mp4"></video>
+          <p style="text-align:center;">A musician effortlessly plays a complex melody on a keyboard, fingers dancing across the keys with precision.</p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1MultiLongVideo/8-3.mp4"></video>
+          <p style="text-align:left;">1. Cherry blossoms bloom around the Japanese-style castle.<br>
+            2. Leaves fall around the Japanese-style castle.<br>
+            3. Snow falls around the Japanese-style castle.<br>
+            4. Snow builds up in trees around the Japanese-style castle.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1MultiLongVideo/3-3.mp4"></video>
+          <p style="text-align:left;">1. A white butterfly sits on a purple flower.<br>
+            2. The color of the purple flower where the white butterfly sits turns red.<br>
+            3. A white butterfly is sitting on a red flower.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1MultiLongVideo/2-3.mp4"></video>
+          <p style="text-align:left;">1. An astronaut in a white uniform is snowboarding in the snowy hill.<br>
+            2. An astronaut in a white uniform is surfing in the sea.<br>
+            3. An astronaut in a white uniform is surfing in the desert.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1MultiLongVideo/7-3.mp4"></video>
+          <p style="text-align:left;">1. The whole beautiful night view of the city is shown.<br>
+            2. Heavy rain flood the city with beautiful night scenery and flood.<br>
+            3. The day dawns over the flooded city.</p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1MultiLongVideo/10-3.mp4"></video>
+          <p style="text-align:left;">1. In spring, a white butterfly sit on a flower.<br>
+            2. In summer, a white butterfly sit on flower.<br>
+            3. In autumn, a white butterfly sit on flower.<br>
+            4. In winter, a white butterfly sit on flower.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1MultiLongVideo/15-3.mp4"></video>
+          <p style="text-align:left;">1. There is a beach where there is no one.<br>
+            2. The waves hit the deserted beach.<br>
+            3. There is a beach that has been swept away by waves.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1MultiLongVideo/19-3.mp4"></video>
+          <p style="text-align:left;">1. A golden retriever has a picnic on a beautiful tropical beach at sunset.<br>
+            2. A golden retriever is running towards a beautiful tropical beach at sunset.<br>
+            3. A golden retriever sits next to a bonfire on a beautiful tropical beach at sunset.<br>
+            4. A golden retriever is looking at the starry sky on a beautiful tropical beach.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1MultiLongVideo/20-3.mp4"></video>
+          <p style="text-align:left;">1. A Red Riding Hood girl walks in the woods.<br>
+            2. A Red Riding Hood girl sells matches in the forest.<br>
+            3. A Red Riding Hood girl falls asleep in the forest.<br>
+            4. A Red Riding Hood girl walks towards the lake from the forest.</p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1MultiLongVideo/23-3.mp4"></video>
+          <p style="text-align:left;">1. The volcano erupts in the clear weather.<br>
+            2. Smoke comes from the crater of the volcano, which has ended its eruption in the clear weather.<br>
+            3. The weather around the volcano turns cloudy.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1MultiLongVideo/24-3.mp4"></video>
+          <p style="text-align:left;">1. There is a Mickey Mouse dancing through the spring forest.<br>
+            2. There is a Mickey Mouse walking through the autumn forest.<br>
+            3. There is a Mickey Mouse running through the winter forest.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1MultiLongVideo/26-3.mp4"></video>
+          <p style="text-align:left;">1. A teddy bear walks on the streets of Times Square.<br>
+            2. The teddy bear enters restaurants.<br>
+            3. The teddy bear eats pizza.<br>
+            4. The teddy bear drinks water.</p>
+        </div>
+      </div>
+      <div class="column is-one-quarter">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/VideoCrafter1MultiLongVideo/27-3.mp4"></video>
+          <p style="text-align:left;">1. The cartoon-style bear appears in a comic book.<br>
+            2. The cartoon-style bears in comic books jump out into the real world.<br>
+            3. The bear in the real world dances.<br>
+            4. The bear in the real world sits.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <center>
+      <h2 class="title is-5"><b style="color:#008AD7; font-weight:normal"> </b> 🌟 Lavie 🌟 </h2>
+    </center>
+    <br>
+    <p>
+      The base model is <b>Lavie</b>.
+    </p>
+    <br>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-one-half">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/LavieLongVideo/2.mp4"></video>
+          <p style="text-align:center;">A bunch of autumn leaves falling on a calm lake, smooth.</p>
+        </div>
+      </div>
+      <div class="column is-one-half">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/LavieLongVideo/3.mp4"></video>
+          <p style="text-align:center;">A corgi is swimming quickly.</p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-one-half">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/LavieMultiLongVideo/1-1.mp4"></video>
+          <p style="text-align:left;">1. A white butterfly sits on a purple flower.<br>
+            2. The color of the purple flower where the white butterfly sits turns red.<br>
+            3. A white butterfly is sitting on a red flower.</p>
+        </div>
+      </div>
+      <div class="column is-one-half">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/LavieMultiLongVideo/2-2.mp4"></video>
+          <p style="text-align:left;">1. A waterfall flows in the mountains under a clear sky.<br>
+            2. A waterfall flows in the fall mountains under a clear sky.<br>
+            3. A waterfall flows in the winter mountains under a clear sky.<br>
+            4. A waterfall frozen on a mountain during a snowstorm.</p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-one-half">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/LavieMultiLongVideo/3-3.mp4"></video>
+          <p style="text-align:left;">1. There is a beach where there is no one.<br>
+            2. The waves hit the deserted beach.<br>
+            3. There is a beach that has been swept away by waves.</p>
+        </div>
+      </div>
+      <div class="column is-one-half">
+        <div class="videoContainer">
+          <video class="mainVideo" muted autoplay="autoplay" loop="loop" src="assets/LavieMultiLongVideo/4-4.mp4"></video>
+          <p style="text-align:left;">1. The volcano erupts in the clear weather.<br>
+            2. Smoke comes from the crater of the volcano, which has ended its eruption in the clear weather.<br>
+            3. The weather around the volcano turns cloudy.</p>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container content is-max-desktop">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{wang2024cono,
+      title={CoNo: Consistency Noise Injection for Tuning-free Long Video Diffusion},
+      author={Wang, Xingrui and Li, Xin and Chen, Zhibo},
+      year={2024}
+    }</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://arxiv.org/pdf/2309.16496.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/RuoyuFeng/CCEdit" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <div class="content">
+          <p>
+             The source code of this webpage is based on the <a href="https://github.com/nerfies/nerfies.github.io/"> Nerfies</a> project webpage.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script type="text/javascript" src="./static/slick/slick.min.js"></script>
+</body>
+</html>
+
+<style>
+  .videoContainer {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .videoContainer video.mainVideo {
+    width: 100%;
+    height: auto;
+  }
+
+  .videoContainer video.overlayVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%; /* Adjust this value to make video2 smaller or larger */
+  }
+</style>
