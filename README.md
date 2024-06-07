@@ -1,4 +1,4 @@
 # CoNo
 
-This is the anonymous repository that illustrate video results of CoNo.
+This is the repository that illustrate video results of CoNo.
 
